@@ -1,0 +1,11 @@
+D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DO\eSya.Finance.DO\bin\Debug\net6.0\eSya.Finance.DO.deps.json
+D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DO\eSya.Finance.DO\bin\Debug\net6.0\eSya.Finance.DO.dll
+D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DO\eSya.Finance.DO\bin\Debug\net6.0\eSya.Finance.DO.pdb
+D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DO\eSya.Finance.DO\obj\Debug\net6.0\eSya.Finance.DO.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DO\eSya.Finance.DO\obj\Debug\net6.0\eSya.Finance.DO.AssemblyInfoInputs.cache
+D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DO\eSya.Finance.DO\obj\Debug\net6.0\eSya.Finance.DO.AssemblyInfo.cs
+D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DO\eSya.Finance.DO\obj\Debug\net6.0\eSya.Finance.DO.csproj.CoreCompileInputs.cache
+D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DO\eSya.Finance.DO\obj\Debug\net6.0\eSya.Finance.DO.dll
+D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DO\eSya.Finance.DO\obj\Debug\net6.0\refint\eSya.Finance.DO.dll
+D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DO\eSya.Finance.DO\obj\Debug\net6.0\eSya.Finance.DO.pdb
+D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DO\eSya.Finance.DO\obj\Debug\net6.0\ref\eSya.Finance.DO.dll

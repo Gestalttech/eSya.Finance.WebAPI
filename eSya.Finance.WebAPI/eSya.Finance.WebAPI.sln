@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eSya.Finance.WebAPI", "eSya.Finance.WebAPI\eSya.Finance.WebAPI.csproj", "{28B1EE43-B49D-4599-AB6B-20CA2FC1E629}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eSya.Finance.DO", "..\eSya.Finance.DO\eSya.Finance.DO\eSya.Finance.DO.csproj", "{BA1415AC-5402-4625-8822-8F7CF3FE6ABB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eSya.Finance.DL", "..\eSya.Finance.DL\eSya.Finance.DL\eSya.Finance.DL.csproj", "{2846F753-87F9-4C69-AA21-6D8483A8F17A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eSya.Finance.IF", "..\eSya.Finance.IF\eSya.Finance.IF\eSya.Finance.IF.csproj", "{8AF58893-B43E-4B25-82FF-4306960A2E84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28B1EE43-B49D-4599-AB6B-20CA2FC1E629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28B1EE43-B49D-4599-AB6B-20CA2FC1E629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28B1EE43-B49D-4599-AB6B-20CA2FC1E629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28B1EE43-B49D-4599-AB6B-20CA2FC1E629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA1415AC-5402-4625-8822-8F7CF3FE6ABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA1415AC-5402-4625-8822-8F7CF3FE6ABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA1415AC-5402-4625-8822-8F7CF3FE6ABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA1415AC-5402-4625-8822-8F7CF3FE6ABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2846F753-87F9-4C69-AA21-6D8483A8F17A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2846F753-87F9-4C69-AA21-6D8483A8F17A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2846F753-87F9-4C69-AA21-6D8483A8F17A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2846F753-87F9-4C69-AA21-6D8483A8F17A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AF58893-B43E-4B25-82FF-4306960A2E84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AF58893-B43E-4B25-82FF-4306960A2E84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AF58893-B43E-4B25-82FF-4306960A2E84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AF58893-B43E-4B25-82FF-4306960A2E84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6DB95A76-7899-4F60-8426-FF4ACE8CAA1F}
+	EndGlobalSection
+EndGlobal

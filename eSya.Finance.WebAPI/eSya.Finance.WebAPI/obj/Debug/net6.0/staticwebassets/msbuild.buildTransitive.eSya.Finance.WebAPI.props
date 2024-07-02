@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\eSya.Finance.WebAPI.props" />
+</Project>
