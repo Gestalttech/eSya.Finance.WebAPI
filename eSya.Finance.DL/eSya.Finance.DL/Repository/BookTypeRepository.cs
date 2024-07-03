@@ -42,20 +42,20 @@ namespace eSya.Finance.DL.Repository
                 throw ex;
             }
         }
-        public async Task<List<DO_BookType>> GetBooksbyType(string booktype)
+        public async Task<DO_BookType> GetBooksbyType(string booktype)
         {
             try
             {
                 using (var db = new eSyaEnterprise())
                 {
-                    var ds = db.GtIffabts.Where(x=>x.BookType.ToUpper().Replace(" ", "") == booktype.ToUpper().Replace(" ", ""))
+                    var ds = db.GtIffabts.Where(x => x.BookType.ToUpper().Replace(" ", "") == booktype.ToUpper().Replace(" ", ""))
                         .Select(r => new DO_BookType
                         {
                             BookType = r.BookType,
                             BookTypeDesc = r.BookTypeDesc,
                             PaymentMethodLinkReq = r.PaymentMethodLinkReq,
                             ActiveStatus = r.ActiveStatus
-                        }).OrderBy(o => o.BookTypeDesc).ToListAsync();
+                        }).FirstOrDefaultAsync();
 
                     return await ds;
                 }
