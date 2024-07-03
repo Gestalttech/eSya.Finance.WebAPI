@@ -8,6 +8,7 @@ D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.IF\eSya.Finance.IF
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.IF\eSya.Finance.IF\obj\Debug\net6.0\eSya.Finance.IF.AssemblyInfoInputs.cache
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.IF\eSya.Finance.IF\obj\Debug\net6.0\eSya.Finance.IF.AssemblyInfo.cs
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.IF\eSya.Finance.IF\obj\Debug\net6.0\eSya.Finance.IF.csproj.CoreCompileInputs.cache
+D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.IF\eSya.Finance.IF\obj\Debug\net6.0\eSya.Finance.IF.sourcelink.json
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.IF\eSya.Finance.IF\obj\Debug\net6.0\eSya.Finance.IF.csproj.CopyComplete
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.IF\eSya.Finance.IF\obj\Debug\net6.0\eSya.Finance.IF.dll
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.IF\eSya.Finance.IF\obj\Debug\net6.0\refint\eSya.Finance.IF.dll

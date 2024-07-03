@@ -1,7 +1,7 @@
 {
-  "W0001": "Age Range Matrix not Exist",
-  
-  
+  "W00143": "Book Type Already Exist",
+  "W00144": "Book Type Description Already Exist",
+  "W00145": "Book Type Not Exist",
 
   "S0001": "Saved Sucessfully",
   "S0002": "Updated Sucessfully",

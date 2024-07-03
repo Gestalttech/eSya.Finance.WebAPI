@@ -11,6 +11,7 @@ D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DL\eSya.Finance.DL
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DL\eSya.Finance.DL\obj\Debug\net6.0\eSya.Finance.DL.AssemblyInfoInputs.cache
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DL\eSya.Finance.DL\obj\Debug\net6.0\eSya.Finance.DL.AssemblyInfo.cs
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DL\eSya.Finance.DL\obj\Debug\net6.0\eSya.Finance.DL.csproj.CoreCompileInputs.cache
+D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DL\eSya.Finance.DL\obj\Debug\net6.0\eSya.Finance.DL.sourcelink.json
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DL\eSya.Finance.DL\obj\Debug\net6.0\eSya.Finance.DL.csproj.CopyComplete
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DL\eSya.Finance.DL\obj\Debug\net6.0\eSya.Finance.DL.dll
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.DL\eSya.Finance.DL\obj\Debug\net6.0\refint\eSya.Finance.DL.dll
