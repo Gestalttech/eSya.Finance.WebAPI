@@ -111,7 +111,7 @@ namespace eSya.Finance.DL.Repository
                             ActiveStatus = r.ActiveStatus
                         }).ToListAsync();
 
-                    var distvouchers = ds.GroupBy(p => new { p.BookType, p.VoucherType, p.VoucherTypeDesc })
+                    var distvouchers = ds.Where(x=>x.ActiveStatus).GroupBy(p => new { p.BookType, p.VoucherType, p.VoucherTypeDesc })
                            .Select(g => g.First())
                            .ToList();
 
