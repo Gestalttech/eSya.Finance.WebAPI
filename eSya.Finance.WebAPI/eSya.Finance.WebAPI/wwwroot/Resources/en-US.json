@@ -2,10 +2,13 @@
   "W00143": "Book Type Already Exist",
   "W00144": "Book Type Description Already Exist",
   "W00145": "Book Type Not Exist",
+  "W00146": "Account Group Not Exist",
+  "W00147": "Account Group already Used can't Delete",
 
   "S0001": "Saved Sucessfully",
   "S0002": "Updated Sucessfully",
   "S0003": "Activated Successfully",
   "S0004": "De Activated Successfully",
-  "S0005": "Deleted Sucessfully"
+  "S0005": "Deleted Sucessfully",
+  "S0006": "Moved Sucessfully"
 }

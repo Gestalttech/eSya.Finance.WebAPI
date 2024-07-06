@@ -182,6 +182,11 @@ namespace eSya.Finance.DL.Entities
 
                 entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
 
+                entity.Property(e => e.NatureOfGroup)
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength();
+
                 entity.Property(e => e.PControlAccount).HasColumnName("P_ControlAccount");
 
                 entity.Property(e => e.PGeneralLedger).HasColumnName("P_GeneralLedger");

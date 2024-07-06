@@ -58,7 +58,8 @@ builder.Services.AddCors(c =>
 
 builder.Services.AddScoped<ICommonDataRepository, CommonDataRepository>();
 builder.Services.AddScoped<IBookTypeRepository, BookTypeRepository>();
-builder.Services.AddScoped<IVoucherTypeRepository, VoucherTypeRepository>(); 
+builder.Services.AddScoped<IVoucherTypeRepository, VoucherTypeRepository>();
+builder.Services.AddScoped<IAccountGroupRepository, AccountGroupRepository>(); 
 builder.Services.AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
 builder.Services.AddControllers();
 

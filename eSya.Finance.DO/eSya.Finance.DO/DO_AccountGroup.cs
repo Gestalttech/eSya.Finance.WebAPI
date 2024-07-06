@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace eSya.Finance.DL.Entities
+namespace eSya.Finance.DO
 {
-    public partial class GtIfagdf
+    public class DO_AccountGroup
     {
-        public string GroupCode { get; set; } = null!;
+        public string? GroupCode { get; set; } = null!;
         public string GroupDesc { get; set; } = null!;
-        public string ParentId { get; set; } = null!;
+        public string? ParentId { get; set; } = null!;
         public int GroupIndex { get; set; }
         public string NatureOfGroup { get; set; } = null!;
-        public string? BookType { get; set; }
+        public string? BookType { get; set; } = null!;
         public bool PrGeneralLedger { get; set; }
         public bool PrControlAccount { get; set; }
         public bool JGeneralLedger { get; set; }
@@ -26,12 +30,8 @@ namespace eSya.Finance.DL.Entities
         public bool IsIntegrateFa { get; set; }
         public bool UsageStatus { get; set; }
         public bool ActiveStatus { get; set; }
-        public string FormId { get; set; } = null!;
-        public int CreatedBy { get; set; }
-        public DateTime CreatedOn { get; set; }
-        public string CreatedTerminal { get; set; } = null!;
-        public int? ModifiedBy { get; set; }
-        public DateTime? ModifiedOn { get; set; }
-        public string? ModifiedTerminal { get; set; }
+        public string FormID { get; set; }
+        public int UserID { get; set; }
+        public string TerminalID { get; set; }
     }
 }
