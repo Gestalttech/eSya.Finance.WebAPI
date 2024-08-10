@@ -118,7 +118,7 @@ namespace eSya.Finance.DL.Repository
                             CnGeneralLedger=false,
                             CnControlAccount=false,
                             IsIntegrateFa=false,
-                            ActiveStatus = obj.ActiveStatus,
+                            ActiveStatus = true,
                             UsageStatus=false,
                             FormId = obj.FormID,
                             CreatedBy = obj.UserID,
@@ -173,7 +173,7 @@ namespace eSya.Finance.DL.Repository
                             fn.JGeneralLedger = obj.JGeneralLedger;
                             fn.JControlAccount = obj.JControlAccount;
                             fn.IsIntegrateFa = obj.IsIntegrateFa;
-                            fn.ActiveStatus = obj.ActiveStatus;
+                            fn.ActiveStatus = true;
                             fn.ModifiedBy = obj.UserID;
                             fn.ModifiedOn = System.DateTime.Now;
                             fn.ModifiedTerminal = obj.TerminalID;
@@ -212,10 +212,10 @@ namespace eSya.Finance.DL.Repository
                 {
                     try
                     {
-
-                        GtIfagdf fn = db.GtIfagdfs.Where(x => x.GroupCode == groupcode).FirstOrDefault();
-                        GtIfagdf fnL = db.GtIfagdfs.Where(c => c.GroupCode == groupcode).FirstOrDefault();
-                        if (fnL != null)
+                        
+                        GtIfagdf fn = db.GtIfagdfs.Where(x => x.GroupCode.ToUpper().Replace(" ", "") == groupcode.ToUpper().Replace(" ", "")).FirstOrDefault();
+                        GtIfagdf fnL = db.GtIfagdfs.Where(c => c.GroupCode.ToUpper().Replace(" ", "") == groupcode.ToUpper().Replace(" ", "")).FirstOrDefault();
+                        if (fn != null)
                         {
                             if (fnL.UsageStatus == false)
                             {
