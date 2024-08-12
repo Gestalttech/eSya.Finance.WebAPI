@@ -4,6 +4,9 @@
   "W00145": "Book Type Not Exist",
   "W00146": "Account Group Not Exist",
   "W00147": "Account Group already Used can't Delete",
+  "W00148": "Account SGL Type Not Exist",
+  "W00149": "Account SGL Type Description Already Exist",
+  "W00150": "Account SGL Type Description Used can't Delete",
 
   "S0001": "Saved Sucessfully",
   "S0002": "Updated Sucessfully",

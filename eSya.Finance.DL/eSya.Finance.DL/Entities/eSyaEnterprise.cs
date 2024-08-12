@@ -8,7 +8,6 @@ namespace eSya.Finance.DL.Entities
     public partial class eSyaEnterprise : DbContext
     {
         public static string _connString = "";
-
         public eSyaEnterprise()
         {
         }
@@ -22,6 +21,7 @@ namespace eSya.Finance.DL.Entities
         public virtual DbSet<GtEcbsln> GtEcbslns { get; set; } = null!;
         public virtual DbSet<GtEccnpm> GtEccnpms { get; set; } = null!;
         public virtual DbSet<GtIfagdf> GtIfagdfs { get; set; } = null!;
+        public virtual DbSet<GtIfaspg> GtIfaspgs { get; set; } = null!;
         public virtual DbSet<GtIfbtpm> GtIfbtpms { get; set; } = null!;
         public virtual DbSet<GtIffabt> GtIffabts { get; set; } = null!;
 
@@ -203,6 +203,34 @@ namespace eSya.Finance.DL.Entities
                 entity.Property(e => e.SControlAccount).HasColumnName("S_ControlAccount");
 
                 entity.Property(e => e.SGeneralLedger).HasColumnName("S_GeneralLedger");
+            });
+
+            modelBuilder.Entity<GtIfaspg>(entity =>
+            {
+                entity.HasKey(e => e.AccountSgltype);
+
+                entity.ToTable("GT_IFASPG");
+
+                entity.Property(e => e.AccountSgltype)
+                    .ValueGeneratedNever()
+                    .HasColumnName("AccountSGLType");
+
+                entity.Property(e => e.AccountSgldesc)
+                    .HasMaxLength(50)
+                    .HasColumnName("AccountSGLDesc");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.FormId)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("FormID");
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
             });
 
             modelBuilder.Entity<GtIfbtpm>(entity =>
