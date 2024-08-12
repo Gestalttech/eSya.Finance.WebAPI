@@ -23,6 +23,9 @@ namespace eSya.Finance.DL.Entities
         public virtual DbSet<GtIfagdf> GtIfagdfs { get; set; } = null!;
         public virtual DbSet<GtIfaspg> GtIfaspgs { get; set; } = null!;
         public virtual DbSet<GtIfbtpm> GtIfbtpms { get; set; } = null!;
+        public virtual DbSet<GtIfcocc> GtIfcoccs { get; set; } = null!;
+        public virtual DbSet<GtIfcocl> GtIfcocls { get; set; } = null!;
+        public virtual DbSet<GtIfcrer> GtIfcrers { get; set; } = null!;
         public virtual DbSet<GtIffabt> GtIffabts { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -263,6 +266,82 @@ namespace eSya.Finance.DL.Entities
                 entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
 
                 entity.Property(e => e.VoucherTypeDesc).HasMaxLength(25);
+            });
+
+            modelBuilder.Entity<GtIfcocc>(entity =>
+            {
+                entity.HasKey(e => e.CostCenterCode);
+
+                entity.ToTable("GT_IFCOCC");
+
+                entity.Property(e => e.CostCenterCode).ValueGeneratedNever();
+
+                entity.Property(e => e.CostCenterDesc).HasMaxLength(50);
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.FormId)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("FormID");
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<GtIfcocl>(entity =>
+            {
+                entity.HasKey(e => e.CostCenterClass);
+
+                entity.ToTable("GT_IFCOCL");
+
+                entity.Property(e => e.CostCenterClass).ValueGeneratedNever();
+
+                entity.Property(e => e.CostClassDesc).HasMaxLength(50);
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.FormId)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("FormID");
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<GtIfcrer>(entity =>
+            {
+                entity.HasKey(e => new { e.CurrencyCode, e.DateOfExchangeRate });
+
+                entity.ToTable("GT_IFCRER");
+
+                entity.Property(e => e.DateOfExchangeRate).HasColumnType("datetime");
+
+                entity.Property(e => e.BuyingLastVoucherDate).HasColumnType("datetime");
+
+                entity.Property(e => e.BuyingRate).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.FormId)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("FormID");
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.SellingLastVoucherDate).HasColumnType("datetime");
+
+                entity.Property(e => e.SellingRate).HasColumnType("numeric(18, 6)");
+
+                entity.Property(e => e.StandardRate).HasColumnType("numeric(18, 6)");
             });
 
             modelBuilder.Entity<GtIffabt>(entity =>
