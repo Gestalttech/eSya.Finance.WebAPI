@@ -9,8 +9,8 @@ namespace eSya.Finance.DO
 {
     public class DO_COAParameter
     {
-        public int AccountSGLType { get; set; }
-        public string AccountSGLDesc { get; set; }
+        public int ParameterID { get; set; }
+        public string ParameterDesc { get; set; }
         public bool UsageStatus { get; set; }
         public bool ActiveStatus { get; set; }
         public string FormID { get; set; }

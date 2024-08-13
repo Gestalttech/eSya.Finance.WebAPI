@@ -29,11 +29,11 @@ namespace eSya.Finance.DL.Repository
                     var ds = db.GtIfaspgs.Where(x => x.ActiveStatus)
                         .Select(r => new DO_COAParameter
                         {
-                            AccountSGLType = r.AccountSgltype,
-                            AccountSGLDesc = r.AccountSgldesc,
+                            ParameterID = r.AccountSgltype,
+                            ParameterDesc = r.AccountSgldesc,
                             UsageStatus = r.UsageStatus,
                             ActiveStatus = r.ActiveStatus
-                        }).OrderBy(o => o.AccountSGLDesc).ToListAsync();
+                        }).OrderBy(o => o.ParameterDesc).ToListAsync();
 
                     return await ds;
                 }
@@ -53,8 +53,8 @@ namespace eSya.Finance.DL.Repository
                     var ds = db.GtIfaspgs.Where(x => x.ActiveStatus)
                         .Select(r => new DO_COAParameter
                         {
-                            AccountSGLType = r.AccountSgltype,
-                            AccountSGLDesc = r.AccountSgldesc,
+                            ParameterID = r.AccountSgltype,
+                            ParameterDesc = r.AccountSgldesc,
                             UsageStatus = r.UsageStatus,
                         }).ToListAsync();
 
@@ -75,24 +75,24 @@ namespace eSya.Finance.DL.Repository
                 {
                     try
                     {
-                        var sgltype = db.GtIfaspgs.Where(w => w.AccountSgltype == obj.AccountSGLType).Count();
+                        var sgltype = db.GtIfaspgs.Where(w => w.AccountSgltype == obj.ParameterID).Count();
                         if (sgltype > 0)
                         {
                             return new DO_ReturnParameter() { Status = false, StatusCode = "W00148", Message = string.Format(_localizer[name: "W00148"]) };
                         }
 
-                        bool bkdesc = db.GtIfaspgs.Any(a => a.AccountSgldesc.ToUpper().Replace(" ", "") == obj.AccountSGLDesc.ToUpper().Replace(" ", ""));
+                        bool bkdesc = db.GtIfaspgs.Any(a => a.AccountSgldesc.ToUpper().Replace(" ", "") == obj.ParameterDesc.ToUpper().Replace(" ", ""));
                         if (bkdesc)
                         {
                             return new DO_ReturnParameter() { Status = false, StatusCode = "W00149", Message = string.Format(_localizer[name: "W00149"]) };
                         }
 
-                        int maxsgltype = db.GtIfaspgs.Select(c => c.AccountSgltype).DefaultIfEmpty().Max() + 1;
+                        //int maxsgltype = db.GtIfaspgs.Select(c => c.AccountSgltype).DefaultIfEmpty().Max() + 1;
 
                         var sgl_type = new GtIfaspg
                         {
-                            AccountSgltype = maxsgltype,
-                            AccountSgldesc = obj.AccountSGLDesc,
+                            AccountSgltype = obj.ParameterID,
+                            AccountSgldesc = obj.ParameterDesc,
                             UsageStatus = obj.UsageStatus,
                             ActiveStatus = obj.ActiveStatus,
                             FormId = obj.FormID,
@@ -130,11 +130,11 @@ namespace eSya.Finance.DL.Repository
                     try
                     {
 
-                        GtIfaspg sgl = db.GtIfaspgs.Where(x => x.AccountSgltype == obj.AccountSGLType).FirstOrDefault();
+                        GtIfaspg sgl = db.GtIfaspgs.Where(x => x.AccountSgltype == obj.ParameterID).FirstOrDefault();
                         if (sgl != null)
                         {
-                            sgl.AccountSgltype = obj.AccountSGLType;
-                            sgl.AccountSgldesc = obj.AccountSGLDesc;
+                            sgl.AccountSgltype = obj.ParameterID;
+                            sgl.AccountSgldesc = obj.ParameterDesc;
                             sgl.UsageStatus = obj.UsageStatus;
                             sgl.ActiveStatus = obj.ActiveStatus;
                             sgl.ModifiedBy = obj.CreatedBy;
@@ -167,7 +167,7 @@ namespace eSya.Finance.DL.Repository
             }
         }
 
-        public async Task<DO_ReturnParameter> DeleteAccountGLType(int AccountSgltype)
+        public async Task<DO_ReturnParameter> DeleteAccountGLType(DO_COAParameter obj)
         {
             using (var db = new eSyaEnterprise())
             {
@@ -175,7 +175,7 @@ namespace eSya.Finance.DL.Repository
                 {
                     try
                     {
-                        GtIfaspg fn = db.GtIfaspgs.Where(x => x.AccountSgltype == AccountSgltype).FirstOrDefault();
+                        GtIfaspg fn = db.GtIfaspgs.Where(x => x.AccountSgltype == obj.ParameterID).FirstOrDefault();
                         if (fn != null)
                         {
                             if (fn.UsageStatus == false)

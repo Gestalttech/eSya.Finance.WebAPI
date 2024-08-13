@@ -39,9 +39,9 @@ namespace eSya.Finance.WebAPI.Controllers
             return Ok(ds);
         }
         [HttpPost]
-        public async Task<IActionResult> DeleteAccountGLType(int AccountSgltype)
+        public async Task<IActionResult> DeleteAccountGLType(DO_COAParameter obj)
         {
-            var ds = await _coaParameterController.DeleteAccountGLType(AccountSgltype);
+            var ds = await _coaParameterController.DeleteAccountGLType(obj);
             return Ok(ds);
         }
     }

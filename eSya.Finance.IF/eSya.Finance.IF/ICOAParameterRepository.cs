@@ -13,6 +13,6 @@ namespace eSya.Finance.IF
         Task<List<DO_COAParameter>> GetGLTypeDescription();
         Task<DO_ReturnParameter> InsertAccountGLType(DO_COAParameter obj);
         Task<DO_ReturnParameter> UpdateAccountGLType(DO_COAParameter obj);
-        Task<DO_ReturnParameter> DeleteAccountGLType(int AccountSgltype);
+        Task<DO_ReturnParameter> DeleteAccountGLType(DO_COAParameter obj);
     }
 }
