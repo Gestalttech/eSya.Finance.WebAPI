@@ -288,6 +288,8 @@ namespace eSya.Finance.DL.Entities
                     .HasColumnName("FormID");
 
                 entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
             });
 
             modelBuilder.Entity<GtIfcocl>(entity =>
@@ -336,6 +338,8 @@ namespace eSya.Finance.DL.Entities
                     .HasColumnName("FormID");
 
                 entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
 
                 entity.Property(e => e.SellingLastVoucherDate).HasColumnType("datetime");
 

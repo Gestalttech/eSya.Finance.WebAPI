@@ -61,6 +61,7 @@ builder.Services.AddScoped<IBookTypeRepository, BookTypeRepository>();
 builder.Services.AddScoped<IVoucherTypeRepository, VoucherTypeRepository>();
 builder.Services.AddScoped<IAccountGroupRepository, AccountGroupRepository>();
 builder.Services.AddScoped<ICOAParameterRepository, COAParameterRepository>();
+builder.Services.AddScoped<ICostCentreRepository, CostCentreRepository>();
 builder.Services.AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
 builder.Services.AddControllers();
 
