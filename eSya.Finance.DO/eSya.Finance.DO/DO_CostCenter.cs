@@ -13,9 +13,10 @@ namespace eSya.Finance.DO
         public int CostCenterClass { get; set; }
         public bool UsageStatus { get; set; }
         public bool ActiveStatus { get; set; }
-        public string FormID { get; set; }
-        public int CreatedBy { get; set; }
-        public string CreatedTerminal { get; set; }
+        public string FormId { get; set; }
+        public int UserID { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public string TerminalID { get; set; }
     }
 
     public class DO_CostCenterClass
@@ -24,8 +25,9 @@ namespace eSya.Finance.DO
         public string CostClassDesc { get; set; }
         public bool UsageStatus { get; set; }
         public bool ActiveStatus { get; set; }
-        public string FormID { get; set; }
-        public int CreatedBy { get; set; }
-        public string CreatedTerminal { get; set; }
+        public string FormId { get; set; }
+        public int UserID { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public string TerminalID { get; set; }
     }
 }

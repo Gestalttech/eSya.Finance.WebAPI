@@ -69,10 +69,10 @@ namespace eSya.Finance.DL.Repository
                             CostCenterClass = obj.CostCenterClass,
                             UsageStatus = obj.UsageStatus,
                             ActiveStatus = obj.ActiveStatus,
-                            FormId = obj.FormID,
-                            CreatedBy = obj.CreatedBy,
-                            CreatedOn = System.DateTime.Now,
-                            CreatedTerminal = obj.CreatedTerminal
+                            FormId = obj.FormId,
+                            CreatedBy = obj.UserID,
+                            CreatedOn = obj.CreatedOn,
+                            CreatedTerminal = obj.TerminalID
                         };
                         db.GtIfcoccs.Add(CCCodes_type);
 
@@ -108,9 +108,9 @@ namespace eSya.Finance.DL.Repository
                             ccc.CostCenterDesc = obj.CostCenterDesc;
                             ccc.CostCenterClass = obj.CostCenterClass;
                             ccc.ActiveStatus = obj.ActiveStatus;
-                            ccc.ModifiedBy = obj.CreatedBy;
-                            ccc.ModifiedOn = System.DateTime.Now;
-                            ccc.ModifiedTerminal = obj.CreatedTerminal;
+                            ccc.ModifiedBy = obj.UserID;
+                            ccc.ModifiedOn = obj.CreatedOn;
+                            ccc.ModifiedTerminal = obj.TerminalID;
                             await db.SaveChangesAsync();
                             dbContext.Commit();
 
@@ -245,10 +245,10 @@ namespace eSya.Finance.DL.Repository
                             CostClassDesc = obj.CostClassDesc,
                             UsageStatus = obj.UsageStatus,
                             ActiveStatus = obj.ActiveStatus,
-                            FormId = obj.FormID,
-                            CreatedBy = obj.CreatedBy,
-                            CreatedOn = System.DateTime.Now,
-                            CreatedTerminal = obj.CreatedTerminal
+                            FormId = obj.FormId,
+                            CreatedBy = obj.UserID,
+                            CreatedOn = obj.CreatedOn,
+                            CreatedTerminal = obj.TerminalID
                         };
                         db.GtIfcocls.Add(CCCodes);
 
@@ -284,9 +284,9 @@ namespace eSya.Finance.DL.Repository
                         {
                             ccc.CostClassDesc = obj.CostClassDesc;
                             ccc.ActiveStatus = obj.ActiveStatus;
-                            ccc.ModifiedBy = obj.CreatedBy;
-                            ccc.ModifiedOn = System.DateTime.Now;
-                            ccc.ModifiedTerminal = obj.CreatedTerminal;
+                            ccc.ModifiedBy = obj.UserID;
+                            ccc.ModifiedOn = obj.CreatedOn;
+                            ccc.ModifiedTerminal = obj.TerminalID;
                             await db.SaveChangesAsync();
                             dbContext.Commit();
 
