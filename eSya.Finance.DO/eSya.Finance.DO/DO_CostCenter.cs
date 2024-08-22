@@ -8,6 +8,7 @@ namespace eSya.Finance.DO
 {
     public class DO_CostCenter
     {
+        public int IsInsert { get; set; }
         public int CostCenterCode { get; set; }
         public string CostCenterDesc { get; set; }
         public int CostCenterClass { get; set; }
@@ -21,6 +22,7 @@ namespace eSya.Finance.DO
 
     public class DO_CostCenterClass
     {
+        public int IsInsert { get; set; }
         public int CostCenterClass { get; set; }
         public string CostClassDesc { get; set; }
         public bool UsageStatus { get; set; }

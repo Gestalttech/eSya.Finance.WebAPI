@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace eSya.Finance.DL.Repository
 {
-    public class CostCentreRepository: ICostCentreRepository
+    public class CostCentreRepository : ICostCentreRepository
     {
         private readonly IStringLocalizer<CostCentreRepository> _localizer;
         public CostCentreRepository(IStringLocalizer<CostCentreRepository> localizer)
@@ -28,6 +28,31 @@ namespace eSya.Finance.DL.Repository
                 using (var db = new eSyaEnterprise())
                 {
                     var ds = db.GtIfcoccs
+                        .Select(r => new DO_CostCenter
+                        {
+                            CostCenterCode = r.CostCenterCode,
+                            CostCenterDesc = r.CostCenterDesc,
+                            CostCenterClass = r.CostCenterClass,
+                            ActiveStatus = r.ActiveStatus,
+                            UsageStatus = r.UsageStatus,
+                        }).OrderBy(o => o.CostCenterDesc).ToListAsync();
+
+                    return await ds;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<DO_CostCenter>> GetCostCenterCodes(int CostCentreCode)
+        {
+            try
+            {
+                using (var db = new eSyaEnterprise())
+                {
+                    var ds = db.GtIfcoccs.Where(x => x.CostCenterCode == CostCentreCode)
                         .Select(r => new DO_CostCenter
                         {
                             CostCenterCode = r.CostCenterCode,
@@ -205,7 +230,31 @@ namespace eSya.Finance.DL.Repository
             {
                 using (var db = new eSyaEnterprise())
                 {
-                    var ds = db.GtIfcocls.Where(x => x.ActiveStatus)
+                    var ds = db.GtIfcocls
+                        .Select(r => new DO_CostCenterClass
+                        {
+                            CostCenterClass = r.CostCenterClass,
+                            CostClassDesc = r.CostClassDesc,
+                            ActiveStatus = r.ActiveStatus,
+                            UsageStatus = r.UsageStatus
+                        }).OrderBy(o => o.CostClassDesc).ToListAsync();
+
+                    return await ds;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<DO_CostCenterClass>> GetCostCenterClassByCode(int CostCenterClass)
+        {
+            try
+            {
+                using (var db = new eSyaEnterprise())
+                {
+                    var ds = db.GtIfcocls.Where(x => x.CostCenterClass == CostCenterClass)
                         .Select(r => new DO_CostCenterClass
                         {
                             CostCenterClass = r.CostCenterClass,

@@ -21,18 +21,27 @@ namespace eSya.Finance.WebAPI.Controllers
             var ds = await _costCentreController.GetCostCenterList();
             return Ok(ds);
         }
-        [HttpPost]
-        public async Task<IActionResult> CreateCostCenter(DO_CostCenter obj)
+        [HttpGet]
+        public async Task<IActionResult> GetCostCenterCodes(int CostCentreCode)
         {
-            var ds = await _costCentreController.CreateCostCenter(obj);
+            var ds = await _costCentreController.GetCostCenterCodes(CostCentreCode);
             return Ok(ds);
         }
         [HttpPost]
-        public async Task<IActionResult> UpdateCostCenter(DO_CostCenter obj)
+        public async Task<IActionResult> AddOrUpdateCostCenterCodes(DO_CostCenter obj)
         {
-            var ds = await _costCentreController.UpdateCostCenter(obj);
-            return Ok(ds);
+            if (obj.IsInsert == 1)
+            {
+                var ds = await _costCentreController.CreateCostCenter(obj);
+                return Ok(ds);
+            }
+            else
+            {
+                var ds = await _costCentreController.UpdateCostCenter(obj);
+                return Ok(ds);
+            }
         }
+        
         [HttpPost]
         public async Task<IActionResult> DeleteCostCenter(int CostCenterCode)
         {
@@ -54,17 +63,26 @@ namespace eSya.Finance.WebAPI.Controllers
             return Ok(ds);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateCostCenterClass(DO_CostCenterClass obj)
+        [HttpGet]
+        public async Task<IActionResult> GetCostCenterClassByCode(int CostCenterClass)
         {
-            var ds = await _costCentreController.CreateCostCenterClass(obj);
+            var ds = await _costCentreController.GetCostCenterClassByCode(CostCenterClass);
             return Ok(ds);
         }
+
         [HttpPost]
-        public async Task<IActionResult> UpdateCostCenterClass(DO_CostCenterClass obj)
+        public async Task<IActionResult> AddOrUpdateCostCenterClass(DO_CostCenterClass obj)
         {
-            var ds = await _costCentreController.UpdateCostCenterClass(obj);
-            return Ok(ds);
+            if (obj.IsInsert == 1)
+            {
+                var ds = await _costCentreController.CreateCostCenterClass(obj);
+                return Ok(ds);
+            }
+            else
+            {
+                var ds = await _costCentreController.UpdateCostCenterClass(obj);
+                return Ok(ds);
+            }
         }
         [HttpPost]
         public async Task<IActionResult> DeleteCostCenterClass(int CostCenterClass)
