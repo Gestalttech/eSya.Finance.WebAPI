@@ -22,7 +22,7 @@ namespace eSya.Finance.WebAPI.Controllers
             return Ok(ds);
         }
         [HttpPost]
-        public async Task<IActionResult> InsertAccountGLType(DO_SwipingMachine obj)
+        public async Task<IActionResult> InsertOrUpdateSwipMachine(DO_SwipingMachine obj)
         {
             var msg = await _swipingMachineRepository.InsertOrUpdateSwipMachine(obj);
             return Ok(msg);
