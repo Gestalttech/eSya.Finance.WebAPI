@@ -51,8 +51,8 @@ namespace eSya.Finance.DL.Repository
                 {
                     try
                     {
-                        var swmachine = db.GtIfswms.Where(w => w.BusinessKey == obj.BusinessKey && w.ControlAccountCode.ToUpper().Replace(" ", "") == obj.ControlAccountCode.ToUpper().Replace(" ", "")
-                        && w.SwipingMachineId.ToUpper().Replace(" ", "") == obj.SwipingMachineId.ToUpper().Replace(" ", "")).FirstOrDefault();
+                        var swmachine = db.GtIfswms.Where(w => w.BusinessKey == obj.BusinessKey && w.ControlAccountCode == obj.ControlAccountCode
+                        && w.SwipingMachineId == obj.SwipingMachineId).FirstOrDefault();
                         if (swmachine == null)
                         {
                             var machine = new GtIfswm
@@ -109,8 +109,8 @@ namespace eSya.Finance.DL.Repository
                 {
                     try
                     {
-                        var swmachine = db.GtIfswms.Where(w => w.BusinessKey == obj.BusinessKey && w.ControlAccountCode.ToUpper().Replace(" ", "") == obj.ControlAccountCode.ToUpper().Replace(" ", "")
-                                             && w.SwipingMachineId.ToUpper().Replace(" ", "") == obj.SwipingMachineId.ToUpper().Replace(" ", "")).FirstOrDefault(); if (fn != null)
+                        var swmachine = db.GtIfswms.Where(w => w.BusinessKey == obj.BusinessKey && w.ControlAccountCode == obj.ControlAccountCode
+                                             && w.SwipingMachineId == obj.SwipingMachineId).FirstOrDefault(); 
                         
                             if (swmachine != null)
                             {
