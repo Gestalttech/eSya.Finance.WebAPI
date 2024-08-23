@@ -41,8 +41,8 @@ namespace eSya.Finance.WebAPI.Controllers
                 return Ok(ds);
             }
         }
-        
-        [HttpPost]
+
+        [HttpGet]
         public async Task<IActionResult> DeleteCostCenter(int CostCenterCode)
         {
             var ds = await _costCentreController.DeleteCostCenter(CostCenterCode);
@@ -84,7 +84,7 @@ namespace eSya.Finance.WebAPI.Controllers
                 return Ok(ds);
             }
         }
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> DeleteCostCenterClass(int CostCenterClass)
         {
             var ds = await _costCentreController.DeleteCostCenterClass(CostCenterClass);

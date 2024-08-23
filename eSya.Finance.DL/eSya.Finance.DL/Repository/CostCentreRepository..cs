@@ -370,11 +370,16 @@ namespace eSya.Finance.DL.Repository
                     try
                     {
                         GtIfcocl fn = db.GtIfcocls.Where(x => x.CostCenterClass == CostCenterClass).FirstOrDefault();
+                        var fn1 = db.GtIfcoccs.Where(x => x.CostCenterClass == CostCenterClass).ToList();
                         if (fn != null)
                         {
                             if (fn.UsageStatus == false)
                             {
                                 db.GtIfcocls.Remove(fn);
+                                if (fn1 != null)
+                                {
+                                    db.GtIfcoccs.RemoveRange(fn1);
+                                }
                             }
                             else
                                 return new DO_ReturnParameter() { Status = false, StatusCode = "W00156", Message = string.Format(_localizer[name: "W00156"]) };
