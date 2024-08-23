@@ -8,6 +8,7 @@ namespace eSya.Finance.DL.Entities
     public partial class eSyaEnterprise : DbContext
     {
         public static string _connString = "";
+
         public eSyaEnterprise()
         {
         }
@@ -27,6 +28,7 @@ namespace eSya.Finance.DL.Entities
         public virtual DbSet<GtIfcocl> GtIfcocls { get; set; } = null!;
         public virtual DbSet<GtIfcrer> GtIfcrers { get; set; } = null!;
         public virtual DbSet<GtIffabt> GtIffabts { get; set; } = null!;
+        public virtual DbSet<GtIfswm> GtIfswms { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -373,6 +375,35 @@ namespace eSya.Finance.DL.Entities
                 entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
 
                 entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<GtIfswm>(entity =>
+            {
+                entity.HasKey(e => new { e.BusinessKey, e.SwipingMachineId, e.ControlAccountCode })
+                    .HasName("PK_GT_IFSWMS_1");
+
+                entity.ToTable("GT_IFSWMS");
+
+                entity.Property(e => e.SwipingMachineId)
+                    .HasMaxLength(50)
+                    .HasColumnName("SwipingMachineID");
+
+                entity.Property(e => e.ControlAccountCode).HasMaxLength(15);
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.FormId)
+                    .HasMaxLength(10)
+                    .HasColumnName("FormID")
+                    .IsFixedLength();
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.SwipingMachineName).HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);
