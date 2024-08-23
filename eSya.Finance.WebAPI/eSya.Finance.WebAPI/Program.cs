@@ -62,6 +62,8 @@ builder.Services.AddScoped<IVoucherTypeRepository, VoucherTypeRepository>();
 builder.Services.AddScoped<IAccountGroupRepository, AccountGroupRepository>();
 builder.Services.AddScoped<ICOAParameterRepository, COAParameterRepository>();
 builder.Services.AddScoped<ICostCentreRepository, CostCentreRepository>();
+builder.Services.AddScoped<ISwipingMachineRepository, SwipingMachineRepository>();
+
 builder.Services.AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
 builder.Services.AddControllers();
 

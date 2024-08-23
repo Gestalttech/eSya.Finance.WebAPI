@@ -33,7 +33,7 @@ namespace eSya.Finance.DL.Repository
                             ParameterDesc = r.AccountSgldesc,
                             UsageStatus = r.UsageStatus,
                             ActiveStatus = r.ActiveStatus
-                        }).OrderBy(o => o.ParameterDesc).ToListAsync();
+                        }).OrderBy(o => o.ParameterID).ToListAsync();
 
                     return await ds;
                 }
