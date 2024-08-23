@@ -25,7 +25,7 @@ namespace eSya.Finance.DL.Repository
             {
                 using (var db = new eSyaEnterprise())
                 {
-                    var ds = db.GtIfswms
+                    var ds = db.GtIfswms.Where(x=>x.BusinessKey==businesskey)
                         .Select(r => new DO_SwipingMachine
                         {
                             SwipingMachineId = r.SwipingMachineId,
