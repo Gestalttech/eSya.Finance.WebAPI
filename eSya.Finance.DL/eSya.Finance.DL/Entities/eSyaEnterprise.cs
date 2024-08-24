@@ -8,7 +8,6 @@ namespace eSya.Finance.DL.Entities
     public partial class eSyaEnterprise : DbContext
     {
         public static string _connString = "";
-
         public eSyaEnterprise()
         {
         }
@@ -21,6 +20,7 @@ namespace eSya.Finance.DL.Entities
         public virtual DbSet<GtEcapcd> GtEcapcds { get; set; } = null!;
         public virtual DbSet<GtEcbsln> GtEcbslns { get; set; } = null!;
         public virtual DbSet<GtEccnpm> GtEccnpms { get; set; } = null!;
+        public virtual DbSet<GtEccuco> GtEccucos { get; set; } = null!;
         public virtual DbSet<GtIfagdf> GtIfagdfs { get; set; } = null!;
         public virtual DbSet<GtIfaspg> GtIfaspgs { get; set; } = null!;
         public virtual DbSet<GtIfbtpm> GtIfbtpms { get; set; } = null!;
@@ -139,6 +139,36 @@ namespace eSya.Finance.DL.Entities
                 entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
 
                 entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<GtEccuco>(entity =>
+            {
+                entity.HasKey(e => e.CurrencyCode);
+
+                entity.ToTable("GT_ECCUCO");
+
+                entity.Property(e => e.CurrencyCode).HasMaxLength(4);
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.CurrencyName).HasMaxLength(25);
+
+                entity.Property(e => e.DecimalPlaces).HasColumnType("decimal(6, 0)");
+
+                entity.Property(e => e.DecimalPortionWord).HasMaxLength(50);
+
+                entity.Property(e => e.FormId)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("FormID");
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.Symbol).HasMaxLength(10);
             });
 
             modelBuilder.Entity<GtIfagdf>(entity =>
@@ -323,6 +353,8 @@ namespace eSya.Finance.DL.Entities
                 entity.HasKey(e => new { e.CurrencyCode, e.DateOfExchangeRate });
 
                 entity.ToTable("GT_IFCRER");
+
+                entity.Property(e => e.CurrencyCode).HasMaxLength(4);
 
                 entity.Property(e => e.DateOfExchangeRate).HasColumnType("datetime");
 

@@ -82,5 +82,28 @@ namespace eSya.Finance.DL.Repository
                 throw ex;
             }
         }
+
+        public async Task<List<DO_CurrencyMaster>> GetActiveCurrencyCodes()
+        {
+            try
+            {
+                using (var db = new eSyaEnterprise())
+                {
+                    var currencies = db.GtEccucos
+                        .Where(w => w.ActiveStatus)
+                        .Select(r => new DO_CurrencyMaster
+                        {
+                            CurrencyCode = r.CurrencyCode,
+                            CurrencyName = r.CurrencyName
+                        }).ToListAsync();
+
+                    return await currencies;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

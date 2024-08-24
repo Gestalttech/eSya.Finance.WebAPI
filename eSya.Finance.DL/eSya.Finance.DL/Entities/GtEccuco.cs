@@ -3,15 +3,16 @@ using System.Collections.Generic;
 
 namespace eSya.Finance.DL.Entities
 {
-    public partial class GtIfcrer
+    public partial class GtEccuco
     {
         public string CurrencyCode { get; set; } = null!;
-        public DateTime DateOfExchangeRate { get; set; }
-        public decimal StandardRate { get; set; }
-        public decimal SellingRate { get; set; }
-        public DateTime? SellingLastVoucherDate { get; set; }
-        public decimal BuyingRate { get; set; }
-        public DateTime? BuyingLastVoucherDate { get; set; }
+        public string CurrencyName { get; set; } = null!;
+        public string Symbol { get; set; } = null!;
+        public decimal DecimalPlaces { get; set; }
+        public bool ShowInMillions { get; set; }
+        public bool SymbolSuffixToAmount { get; set; }
+        public string? DecimalPortionWord { get; set; }
+        public bool UsageStatus { get; set; }
         public bool ActiveStatus { get; set; }
         public string FormId { get; set; } = null!;
         public int CreatedBy { get; set; }
