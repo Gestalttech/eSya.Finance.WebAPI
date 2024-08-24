@@ -63,6 +63,7 @@ builder.Services.AddScoped<IAccountGroupRepository, AccountGroupRepository>();
 builder.Services.AddScoped<ICOAParameterRepository, COAParameterRepository>();
 builder.Services.AddScoped<ICostCentreRepository, CostCentreRepository>();
 builder.Services.AddScoped<ISwipingMachineRepository, SwipingMachineRepository>();
+builder.Services.AddScoped<IExchangeRateRepository, ExchangeRateRepository>();
 
 builder.Services.AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
 builder.Services.AddControllers();

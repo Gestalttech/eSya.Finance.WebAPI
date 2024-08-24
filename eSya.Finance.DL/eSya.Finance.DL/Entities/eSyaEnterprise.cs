@@ -360,7 +360,7 @@ namespace eSya.Finance.DL.Entities
 
                 entity.Property(e => e.BuyingLastVoucherDate).HasColumnType("datetime");
 
-                entity.Property(e => e.BuyingRate).HasColumnType("numeric(18, 0)");
+                entity.Property(e => e.BuyingRate).HasColumnType("numeric(18, 6)");
 
                 entity.Property(e => e.CreatedOn).HasColumnType("datetime");
 

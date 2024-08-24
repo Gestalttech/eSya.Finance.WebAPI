@@ -33,5 +33,12 @@ namespace eSya.Finance.WebAPI.Controllers
             var ds = await _commonDataRepository.GetBusinessKey();
             return Ok(ds);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetActiveCurrencyCodes(int BusinessKey)
+        {
+            var ds = await _commonDataRepository.GetActiveCurrencyCodes(BusinessKey);
+            return Ok(ds);
+        }
     }
 }

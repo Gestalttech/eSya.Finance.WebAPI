@@ -83,21 +83,38 @@ namespace eSya.Finance.DL.Repository
             }
         }
 
-        public async Task<List<DO_CurrencyMaster>> GetActiveCurrencyCodes()
+        public async Task<List<DO_CurrencyMaster>> GetActiveCurrencyCodes(int BusinessKey)
         {
             try
             {
                 using (var db = new eSyaEnterprise())
                 {
-                    var currencies = db.GtEccucos
-                        .Where(w => w.ActiveStatus)
+                    var sgltype = db.GtEcbslns.Where(w => w.BusinessKey == BusinessKey).SingleOrDefault();
+                    if (sgltype != null)
+                    {
+                        //var curr_lst = db.GtEccucos.Where(x => x.CurrencyCode != sgltype.CurrencyCode).ToList();
+
+                        var currencies = db.GtEccucos
+                        .Where(w => w.ActiveStatus && w.CurrencyCode != sgltype.CurrencyCode)
                         .Select(r => new DO_CurrencyMaster
                         {
                             CurrencyCode = r.CurrencyCode,
                             CurrencyName = r.CurrencyName
                         }).ToListAsync();
 
-                    return await currencies;
+                        return await currencies;
+                    }
+                    else
+                    {
+                        var currencies = db.GtEccucos
+                       .Where(w => w.ActiveStatus)
+                       .Select(r => new DO_CurrencyMaster
+                       {
+                           CurrencyCode = r.CurrencyCode,
+                           CurrencyName = r.CurrencyName
+                       }).ToListAsync();
+                        return await currencies;
+                    }
                 }
             }
             catch (Exception ex)

@@ -40,9 +40,9 @@ namespace eSya.Finance.DL.Repository
                                 BuyingRate = obj.BuyingRate,
                                 ActiveStatus = obj.ActiveStatus,
                                 FormId = obj.FormID,
-                                CreatedBy = obj.CreatedBy,
-                                CreatedOn = System.DateTime.Now,
-                                CreatedTerminal = obj.CreatedTerminal
+                                CreatedBy = obj.UserID,
+                                CreatedOn = obj.CreatedON,
+                                CreatedTerminal = obj.TerminalID
                             };
                             db.GtIfcrers.Add(ex_RT);
 
@@ -60,9 +60,9 @@ namespace eSya.Finance.DL.Repository
                             ex.BuyingLastVoucherDate = obj.BuyingLastVoucherDate;
                             ex.BuyingRate = obj.BuyingRate;
                             ex.ActiveStatus = obj.ActiveStatus;
-                            ex.ModifiedBy = obj.CreatedBy;
-                            ex.ModifiedOn = DateTime.Now;
-                            ex.ModifiedTerminal = System.Environment.MachineName;
+                            ex.ModifiedBy = obj.UserID;
+                            ex.ModifiedOn = obj.CreatedON;
+                            ex.ModifiedTerminal = obj.TerminalID;
 
                             await db.SaveChangesAsync();
                             //UpdateExchangeRate(obj);
@@ -99,6 +99,7 @@ namespace eSya.Finance.DL.Repository
                             .Select(r => new DO_CurrencyExchangeRate
                             {
                                 CurrencyCode = r.CurrencyCode,
+                                CurrencyDesc = r.CurrencyCode,
                                 DateOfExchangeRate = r.DateOfExchangeRate,
                                 StandardRate = r.StandardRate,
                                 SellingLastVoucherDate = r.SellingLastVoucherDate,

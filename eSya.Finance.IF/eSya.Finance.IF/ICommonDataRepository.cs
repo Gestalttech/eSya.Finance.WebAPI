@@ -14,6 +14,6 @@ namespace eSya.Finance.IF
         Task<List<DO_ApplicationCodes>> GetApplicationCodesByCodeTypeList(List<int> l_codeType);
 
         Task<List<DO_BusinessLocation>> GetBusinessKey();
-        Task<List<DO_CurrencyMaster>> GetActiveCurrencyCodes();
+        Task<List<DO_CurrencyMaster>> GetActiveCurrencyCodes(int BusinessKey);
     }
 }
