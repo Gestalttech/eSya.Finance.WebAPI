@@ -47,8 +47,6 @@ namespace eSya.Finance.DL.Repository
                             db.GtIfcrers.Add(ex_RT);
 
                             await db.SaveChangesAsync();
-                            
-                            //CreateExchangeRate(obj);
                         }
                         else
                         {
@@ -65,7 +63,6 @@ namespace eSya.Finance.DL.Repository
                             ex.ModifiedTerminal = obj.TerminalID;
 
                             await db.SaveChangesAsync();
-                            //UpdateExchangeRate(obj);
                         }
                         dbContext.Commit();
                         return new DO_ReturnParameter() { Status = true, StatusCode = "S0001", Message = string.Format(_localizer[name: "S0001"]) };
@@ -84,17 +81,12 @@ namespace eSya.Finance.DL.Repository
             }
         }
 
-        public async Task<List<DO_CurrencyExchangeRate>> FillExchangeRate(int BusinessKey)
+        public async Task<List<DO_CurrencyExchangeRate>> FillExchangeRate()
         {
             try
             {
                 using (var db = new eSyaEnterprise())
                 {
-                    //var sgltype = db.GtEcbslns.Where(w => w.BusinessKey == BusinessKey).SingleOrDefault();
-                    //if (sgltype != null)
-                    //{
-                    //    var curr_lst = db.GtEccucos.Where(x => x.CurrencyCode != sgltype.CurrencyCode).ToList();
-
                         var ds = db.GtIfcrers.Where(x => x.ActiveStatus)
                             .Select(r => new DO_CurrencyExchangeRate
                             {
@@ -109,38 +101,6 @@ namespace eSya.Finance.DL.Repository
                                 ActiveStatus = r.ActiveStatus,
                             }).ToListAsync();
                         return await ds;
-                        //foreach (var cm in curr_lst)
-                        //{
-                        //    DO_CurrencyExchangeRate erObj;
-                        //    var obj = db.GtIfcrers.Where(x => x.CurrencyCode == cm.CurrencyCode).OrderByDescending(x => x.DateOfExchangeRate).FirstOrDefault();
-                        //    if (obj != null)
-                        //    {
-                        //        erObj = new DO_CurrencyExchangeRate()
-                        //        {
-                        //            CurrencyCode = obj.CurrencyCode,
-                        //            DateOfExchangeRate = obj.DateOfExchangeRate,
-                        //            StandardRate = obj.StandardRate,
-                        //            SellingLastVoucherDate = obj.SellingLastVoucherDate,
-                        //            SellingRate = obj.SellingRate,
-                        //            BuyingLastVoucherDate = obj.BuyingLastVoucherDate,
-                        //            BuyingRate = obj.BuyingRate,
-                        //            ActiveStatus = obj.ActiveStatus,
-                        //        };
-                        //    }
-                        //    else
-                        //    {
-                        //        erObj = new DO_CurrencyExchangeRate()
-                        //        {
-                        //            CurrencyCode = cm.CurrencyCode,
-                        //            DateOfExchangeRate = DateTime.Now,
-                        //            Status = true
-                        //        };
-                        //    }
-                        //    list.Add(erObj);
-                        //}
-
-                    //}
-                    //return await;
                 }
             }
             catch (Exception ex)
@@ -148,55 +108,5 @@ namespace eSya.Finance.DL.Repository
                 throw ex;
             }
         }
-
-        //public List<DO_CurrencyExchangeRate> ReadExchangeRate(byte businessId)
-        //{
-        //    try
-        //    {
-        //        List<DO_CurrencyExchangeRate> list = new List<DO_CurrencyExchangeRate>();
-
-        //        using (HISFinance_Entities FE = new HISFinance_Entities())
-        //        {
-        //            Shared_Entities SE = new Shared_Entities();
-        //            OrganizationDetail org = SE.OrganizationDetails.Single(c => c.BusinessID == businessId);
-
-        //            var l_GT_IFCRMS = FE.GT_IFCRMS.Where(x => x.CurrencyCode != org.LocalCurrency).ToList();
-        //            foreach (var cm in l_GT_IFCRMS)
-        //            {
-        //                DO_CurrencyExchangeRate erObj;
-        //                var obj = FE.GT_IFCRER.Where(x => x.CurrencyCode == cm.CurrencyCode).OrderByDescending(x => x.DateOfExchangeRate).FirstOrDefault();
-        //                if (obj != null)
-        //                {
-        //                    erObj = new DO_CurrencyExchangeRate()
-        //                    {
-        //                        CurrencyCode = obj.CurrencyCode,
-        //                        DateOfExchangeRate = obj.DateOfExchangeRate,
-        //                        StandardRate = obj.StandardRate,
-        //                        SellingLastVoucherDate = obj.SellingLastVoucherDate,
-        //                        SellingRate = obj.SellingRate,
-        //                        BuyingLastVoucherDate = obj.BuyingLastVoucherDate,
-        //                        BuyingRate = obj.BuyingRate,
-        //                        Status = obj.Status,
-        //                    };
-        //                }
-        //                else
-        //                {
-        //                    erObj = new DO_CurrencyExchangeRate()
-        //                    {
-        //                        CurrencyCode = cm.CurrencyCode,
-        //                        DateOfExchangeRate = DateTime.Now,
-        //                        Status = true
-        //                    };
-        //                }
-        //                list.Add(erObj);
-        //            }
-        //        }
-        //        return list;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
     }
 }

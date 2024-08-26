@@ -15,9 +15,9 @@ namespace eSya.Finance.WebAPI.Controllers
             _exchangeRateController = exchangeRateRepository;
         }
         [HttpGet]
-        public async Task<IActionResult> FillExchangeRate(int BusinessKey)
+        public async Task<IActionResult> FillExchangeRate()
         {
-            var ds = await _exchangeRateController.FillExchangeRate(BusinessKey);
+            var ds = await _exchangeRateController.FillExchangeRate();
             return Ok(ds);
         }
         [HttpPost]

@@ -9,7 +9,7 @@ namespace eSya.Finance.IF
 {
     public interface IExchangeRateRepository
     {
-        Task<List<DO_CurrencyExchangeRate>> FillExchangeRate(int BusinessKey);
+        Task<List<DO_CurrencyExchangeRate>> FillExchangeRate();
         Task<DO_ReturnParameter> InsertUpdateExchangeRate(DO_CurrencyExchangeRate obj);
     }
 }
