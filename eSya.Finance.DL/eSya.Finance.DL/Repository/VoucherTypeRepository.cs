@@ -48,26 +48,51 @@ namespace eSya.Finance.DL.Repository
             {
                 using (var db = new eSyaEnterprise())
                 {
+                    //var ds = await db.GtIffabts
+                    //    .Join(db.GtEccnpms,
+                    //     gc => gc.BookType,
+                    //     ct => ct.PaymentMethod,
+                    //     (gc, ct) => new { gc, ct })
+                    //    .Join(db.GtEcapcds,
+                    //     ctc => ctc.ct.InstrumentType,
+                    //     p => p.ApplicationCode,
+                    //     (ctc, p) => new { ctc, p })
+                    //    .Where(x=>x.ctc.ct.ActiveStatus && x.ctc.gc.BookType == booktype && x.ctc.gc.ActiveStatus 
+                    //    && x.ctc.gc.PaymentMethodLinkReq && x.p.ActiveStatus)
+
+                    //    .Select(r => new DO_VoucherType
+                    //    {
+                    //        BookType=r.ctc.gc.BookType,
+                    //        InstrumentType=r.ctc.ct.InstrumentType,
+                    //        InstrumentTypeDesc = r.p.CodeDesc,
+                    //        ActiveStatus=false
+
+                    //    }).ToListAsync();
+
                     var ds = await db.GtIffabts
-                        .Join(db.GtEccnpms,
-                         gc => gc.BookType,
-                         ct => ct.PaymentMethod,
-                         (gc, ct) => new { gc, ct })
-                        .Join(db.GtEcapcds,
-                         ctc => ctc.ct.InstrumentType,
-                         p => p.ApplicationCode,
-                         (ctc, p) => new { ctc, p })
-                        .Where(x=>x.ctc.ct.ActiveStatus && x.ctc.gc.BookType == booktype && x.ctc.gc.ActiveStatus 
-                        && x.ctc.gc.PaymentMethodLinkReq && x.p.ActiveStatus)
+                        .Join(db.GtEcapcds.Where(x=>x.ActiveStatus && x.ShortCode== booktype),
+                        f=>f.BookType,
+                        fa=>fa.ShortCode,
+                        (f, fa) => new {f,fa})
+                       .Join(db.GtEccnpms,
+                        gc => gc.fa.ApplicationCode,
+                        ct => ct.PaymentMethod,
+                        (gc, ct) => new { gc, ct })
+                       .Join(db.GtEcapcds,
+                       ctc => ctc.ct.InstrumentType,
+                       p => p.ApplicationCode,
+                       (ctc, p) => new { ctc, p })
+                      .Where(x => x.ctc.ct.ActiveStatus && x.ctc.gc.f.BookType == booktype && x.ctc.gc.f.ActiveStatus
+                      && x.ctc.gc.f.PaymentMethodLinkReq && x.p.ActiveStatus)
 
-                        .Select(r => new DO_VoucherType
-                        {
-                            BookType=r.ctc.gc.BookType,
-                            InstrumentType=r.ctc.ct.InstrumentType,
-                            InstrumentTypeDesc = r.p.CodeDesc,
-                            ActiveStatus=false
+                      .Select(r => new DO_VoucherType
+                      {
+                          BookType = r.ctc.gc.f.BookType,
+                          InstrumentType = r.ctc.ct.InstrumentType,
+                          InstrumentTypeDesc = r.p.CodeDesc,
+                          ActiveStatus = false
 
-                        }).ToListAsync();
+                      }).ToListAsync();
 
                     var distpayments = ds.GroupBy(p => p.InstrumentType)
                            .Select(g => g.First())

@@ -261,7 +261,6 @@ D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.WebAPI\eSya.Financ
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.WebAPI\eSya.Finance.WebAPI\obj\Debug\net6.0\eSya.Finance.WebAPI.AssemblyInfoInputs.cache
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.WebAPI\eSya.Finance.WebAPI\obj\Debug\net6.0\eSya.Finance.WebAPI.AssemblyInfo.cs
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.WebAPI\eSya.Finance.WebAPI\obj\Debug\net6.0\eSya.Finance.WebAPI.csproj.CoreCompileInputs.cache
-D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.WebAPI\eSya.Finance.WebAPI\obj\Debug\net6.0\eSya.Finance.WebAPI.MvcApplicationPartsAssemblyInfo.cs
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.WebAPI\eSya.Finance.WebAPI\obj\Debug\net6.0\eSya.Finance.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.WebAPI\eSya.Finance.WebAPI\obj\Debug\net6.0\eSya.Finance.WebAPI.sourcelink.json
 D:\Projects\eSyaProjects2022\eSya.Finance.WebAPI\eSya.Finance.WebAPI\eSya.Finance.WebAPI\obj\Debug\net6.0\staticwebassets.build.json

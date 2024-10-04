@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("eSya.Finance.DL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd6c3b6cb0bdf906edda80dd66e6e7f837c73219")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e99d0631e997d7bbd1223c49504ff3144e11f2b")]
 [assembly: System.Reflection.AssemblyProductAttribute("eSya.Finance.DL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("eSya.Finance.DL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
