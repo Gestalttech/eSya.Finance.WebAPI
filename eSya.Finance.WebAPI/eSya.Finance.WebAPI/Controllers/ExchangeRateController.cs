@@ -15,15 +15,21 @@ namespace eSya.Finance.WebAPI.Controllers
             _exchangeRateController = exchangeRateRepository;
         }
         [HttpGet]
-        public async Task<IActionResult> FillExchangeRate()
+        public async Task<IActionResult> FillExchangeRate(string Countrycode)
         {
-            var ds = await _exchangeRateController.FillExchangeRate();
+            var ds = await _exchangeRateController.FillExchangeRate(Countrycode);
             return Ok(ds);
         }
         [HttpPost]
-        public async Task<IActionResult> InsertUpdateExchangeRate(DO_CurrencyExchangeRate obj)
+        public async Task<IActionResult> InsertIntoExchangeRate(DO_CurrencyExchangeRate obj)
         {
-            var ds = await _exchangeRateController.InsertUpdateExchangeRate(obj);
+            var ds = await _exchangeRateController.InsertIntoExchangeRate(obj);
+            return Ok(ds);
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateIntoExchangeRate(DO_CurrencyExchangeRate obj)
+        {
+            var ds = await _exchangeRateController.UpdateIntoExchangeRate(obj);
             return Ok(ds);
         }
     }

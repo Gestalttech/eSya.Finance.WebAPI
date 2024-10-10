@@ -8,6 +8,7 @@ namespace eSya.Finance.DL.Entities
     public partial class eSyaEnterprise : DbContext
     {
         public static string _connString = "";
+
         public eSyaEnterprise()
         {
         }
@@ -19,6 +20,7 @@ namespace eSya.Finance.DL.Entities
 
         public virtual DbSet<GtEcapcd> GtEcapcds { get; set; } = null!;
         public virtual DbSet<GtEcbsln> GtEcbslns { get; set; } = null!;
+        public virtual DbSet<GtEccncd> GtEccncds { get; set; } = null!;
         public virtual DbSet<GtEccnpm> GtEccnpms { get; set; } = null!;
         public virtual DbSet<GtEccuco> GtEccucos { get; set; } = null!;
         public virtual DbSet<GtIfagdf> GtIfagdfs { get; set; } = null!;
@@ -26,6 +28,7 @@ namespace eSya.Finance.DL.Entities
         public virtual DbSet<GtIfbtpm> GtIfbtpms { get; set; } = null!;
         public virtual DbSet<GtIfcocc> GtIfcoccs { get; set; } = null!;
         public virtual DbSet<GtIfcocl> GtIfcocls { get; set; } = null!;
+        public virtual DbSet<GtIfcreh> GtIfcrehs { get; set; } = null!;
         public virtual DbSet<GtIfcrer> GtIfcrers { get; set; } = null!;
         public virtual DbSet<GtIffabt> GtIffabts { get; set; } = null!;
         public virtual DbSet<GtIfswm> GtIfswms { get; set; } = null!;
@@ -107,6 +110,62 @@ namespace eSya.Finance.DL.Entities
                 entity.Property(e => e.ShortDateFormat).HasMaxLength(15);
 
                 entity.Property(e => e.ShortDesc).HasMaxLength(15);
+            });
+
+            modelBuilder.Entity<GtEccncd>(entity =>
+            {
+                entity.HasKey(e => e.Isdcode);
+
+                entity.ToTable("GT_ECCNCD");
+
+                entity.Property(e => e.Isdcode)
+                    .ValueGeneratedNever()
+                    .HasColumnName("ISDCode");
+
+                entity.Property(e => e.CountryCode)
+                    .HasMaxLength(4)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CountryFlag).HasMaxLength(150);
+
+                entity.Property(e => e.CountryName).HasMaxLength(50);
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.CurrencyCode).HasMaxLength(4);
+
+                entity.Property(e => e.DateFormat).HasMaxLength(25);
+
+                entity.Property(e => e.FormId)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("FormID");
+
+                entity.Property(e => e.IsPinapplicable).HasColumnName("IsPINApplicable");
+
+                entity.Property(e => e.IsPoboxApplicable).HasColumnName("IsPOBoxApplicable");
+
+                entity.Property(e => e.MobileNumberPattern)
+                    .HasMaxLength(25)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.PincodePattern)
+                    .HasMaxLength(25)
+                    .IsUnicode(false)
+                    .HasColumnName("PINcodePattern");
+
+                entity.Property(e => e.PoboxPattern)
+                    .HasMaxLength(25)
+                    .IsUnicode(false)
+                    .HasColumnName("POBoxPattern");
+
+                entity.Property(e => e.ShortDateFormat).HasMaxLength(15);
             });
 
             modelBuilder.Entity<GtEccnpm>(entity =>
@@ -338,13 +397,38 @@ namespace eSya.Finance.DL.Entities
                 entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<GtIfcrer>(entity =>
+            modelBuilder.Entity<GtIfcreh>(entity =>
             {
-                entity.HasKey(e => new { e.CurrencyCode, e.DateOfExchangeRate });
+                entity.HasKey(e => new { e.CountryCode, e.CurrencyCode });
 
-                entity.ToTable("GT_IFCRER");
+                entity.ToTable("GT_IFCREH");
+
+                entity.Property(e => e.CountryCode)
+                    .HasMaxLength(4)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CurrencyCode).HasMaxLength(4);
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.FormId)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("FormID");
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<GtIfcrer>(entity =>
+            {
+                entity.HasKey(e => new { e.CurrencyKey, e.DateOfExchangeRate })
+                    .HasName("PK_GT_IFCRER_1");
+
+                entity.ToTable("GT_IFCRER");
 
                 entity.Property(e => e.DateOfExchangeRate).HasColumnType("datetime");
 

@@ -7,6 +7,7 @@
   "W00148": "Account SGL Type Not Exist",
   "W00149": "Account SGL Type Description Already Exist",
   "W00150": "Account SGL Type Description Used can't Delete",
+  "W00151": "Exchange Rate already Exist",
 
   "S0001": "Saved Sucessfully",
   "S0002": "Updated Sucessfully",

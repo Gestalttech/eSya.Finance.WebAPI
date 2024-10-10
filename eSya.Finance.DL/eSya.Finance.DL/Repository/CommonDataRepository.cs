@@ -122,5 +122,57 @@ namespace eSya.Finance.DL.Repository
                 throw ex;
             }
         }
+
+        public async Task<List<DO_CountryMaster>> GetActiveCountryCodes()
+        {
+            try
+            {
+                using (var db = new eSyaEnterprise())
+                {
+                    var bk = db.GtEccncds.Where(x => x.ActiveStatus)
+                        .Select(r => new DO_CountryMaster
+                        {
+                            Isdcode = r.Isdcode,
+                            CountryCode = r.CountryCode,
+                            CountryFlag = r.CountryFlag,
+                            CountryName = r.CountryName,
+                        }).ToListAsync();
+
+                    return await bk;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<DO_CurrencyMaster>> GetActiveExchangeCurrencyCodes(string Countrycode)
+        {
+            try
+            {
+                using (var db = new eSyaEnterprise())
+                {
+                    var ds = db.GtEccncds.Where(w => w.ActiveStatus && w.CountryCode!=Countrycode)
+                        .Join(db.GtEccucos.Where(x=>x.ActiveStatus),
+                        o => new {o.CurrencyCode},
+                        c => new {c.CurrencyCode},
+                        (o,c) => new {o,c})
+                        .Select(r => new DO_CurrencyMaster
+                        {
+                            CurrencyCode = r.o.CurrencyCode,
+                            CurrencyName = r.c.CurrencyName
+                        }).ToListAsync();
+
+                        return await ds;
+                    }
+                    
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

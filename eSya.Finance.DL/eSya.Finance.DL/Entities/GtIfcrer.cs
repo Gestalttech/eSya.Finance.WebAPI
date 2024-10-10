@@ -5,7 +5,7 @@ namespace eSya.Finance.DL.Entities
 {
     public partial class GtIfcrer
     {
-        public string CurrencyCode { get; set; } = null!;
+        public int CurrencyKey { get; set; }
         public DateTime DateOfExchangeRate { get; set; }
         public decimal StandardRate { get; set; }
         public decimal SellingRate { get; set; }

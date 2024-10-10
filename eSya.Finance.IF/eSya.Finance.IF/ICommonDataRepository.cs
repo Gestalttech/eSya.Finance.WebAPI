@@ -15,5 +15,7 @@ namespace eSya.Finance.IF
 
         Task<List<DO_BusinessLocation>> GetBusinessKey();
         Task<List<DO_CurrencyMaster>> GetActiveCurrencyCodes(int BusinessKey);
+        Task<List<DO_CountryMaster>> GetActiveCountryCodes();
+        Task<List<DO_CurrencyMaster>> GetActiveExchangeCurrencyCodes(string Countrycode);
     }
 }

@@ -22,4 +22,12 @@ namespace eSya.Finance.DO
         public string CurrencyCode { get; set; } = null!;
         public string CurrencyName { get; set; } = null!;
     }
+    public class DO_CountryMaster
+    {
+        public int Isdcode { get; set; }
+        public string CountryCode { get; set; } 
+        public string CountryName { get; set; } 
+        public string CountryFlag { get; set; }
+       
+    }
 }
