@@ -65,6 +65,7 @@ namespace eSya.Finance.DL.Repository
                             {
                                 CurrencyCode = obj.CurrencyCode,
                                 CountryCode = obj.CountryCode,
+                                ActiveStatus = obj.ActiveStatus,
                                 CurrencyKey = _ckey,
                                 FormId = obj.FormID,
                                 CreatedBy = obj.UserID,
